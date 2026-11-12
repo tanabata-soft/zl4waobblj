@@ -16,8 +16,8 @@
     <link rel="icon" type="image/png" href="icons/icon-192.png" />
     <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
     <title>灰の深淵 — 双葉 湊</title>
-    <script type="module" crossorigin src="./assets/index-BmOaPawS.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-CgcJkycY.css">
+    <script type="module" crossorigin src="./assets/index-CJfJo5Xh.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-BJJGEE1u.css">
   <link rel="manifest" href="./manifest.webmanifest"></head>
   <body>
     
@@ -34,23 +34,24 @@
         </span>
       </div>
 
-      <div class="cover-gap" aria-hidden="true"></div>
-
       
-      <footer class="cover-foot">
+      <div class="cover-below">
         
         <div class="cover-install" id="coverInstallEntry">
           <button id="cover-install-open" type="button" class="cover-install-open">📲 アプリとしてインストールする方法</button>
         </div>
-        <button id="coverSettingsBtn" type="button" class="cover-settings-btn" aria-label="設定"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3.2" /><path d="M12 3.8v2.4M12 17.8v2.4M3.8 12h2.4M17.8 12h2.4M6.2 6.2l1.7 1.7M17.8 6.2l-1.7 1.7M6.2 17.8l1.7-1.7M17.8 17.8l-1.7-1.7" /></svg></button>
-      </footer>
+        
+        <footer class="cover-foot">
+          <button id="coverSettingsBtn" type="button" class="cover-settings-btn" aria-label="設定"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3.2" /><path d="M12 3.8v2.4M12 17.8v2.4M3.8 12h2.4M17.8 12h2.4M6.2 6.2l1.7 1.7M17.8 6.2l-1.7 1.7M6.2 17.8l1.7-1.7M17.8 17.8l-1.7-1.7" /></svg></button>
+        </footer>
+      </div>
     </section>
 
     
     <section id="titleView" class="view view-title" hidden>
       <div class="title-sheet">
         <div class="title-text">
-          <h1 class="title-name">灰の深淵</h1>
+          <h1 class="title-name"><span class="vt-line">灰の深淵</span></h1>
           <p class="title-author">双葉 湊</p>
         </div>
         
@@ -177,7 +178,6 @@
             <summary id="menuMoreSummary" class="menu-more-sum"><span>詳しい設定</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg></summary>
             <div id="menuGroupMore">
               <label class="menu-row toggle-label" id="rowPageSound"><span>ページめくり音</span><input type="checkbox" id="pageSoundToggle" checked /></label>
-              <label class="menu-row toggle-label" id="rowRuby"><span>フリガナ</span><input type="checkbox" id="rubyToggle" /></label>
               <label class="menu-row toggle-label" id="rowBg"><span>背景イメージ</span><input type="checkbox" id="bgToggle" checked /></label>
               <label class="menu-row toggle-label" id="rowWake"><span>画面を暗くしない</span><input type="checkbox" id="wakeLockToggle" checked /></label>
               <label class="menu-row toggle-label" id="rowHl"><span>読んでいる文を強調</span><input type="checkbox" id="hlToggle" checked /></label>
@@ -188,13 +188,19 @@
 
         
         <div class="menu-nav">
-          <button id="toCoverFromMenuBtn" type="button" class="menu-nav-btn" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5.4v13.4" /><path d="M12 5.4C9.7 4.2 6.9 3.7 4.3 4.3v13.2c2.6-.6 5.4-.1 7.7 1.3 2.3-1.4 5.1-1.9 7.7-1.3V4.3c-2.6-.6-5.4-.1-7.7 1.1Z" /></svg><span>表紙へ</span></button>
+          <button id="toCoverFromMenuBtn" type="button" class="menu-nav-btn" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 5.5v13" /><path d="M18 6.8v10.4L10 12Z" /></svg><span>初めから読む</span></button>
           <button id="tocFromMenuBtn" type="button" class="menu-nav-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M5 7h14M5 12h14M5 17h14" /></svg><span>目次へ</span></button>
         </div>
 
         
         <div class="menu-foot">
           <button id="install-open" type="button" class="menu-nav-row">📲 アプリとしてインストールする方法</button>
+        </div>
+
+        
+        <div id="dl-status-row" class="menu-foot" hidden>
+          <p id="dl-status-line" class="menu-dl-status"></p>
+          <button id="dl-status-repair" type="button" class="menu-nav-row" hidden>📥 音声データを取り込み直す</button>
         </div>
 
         
@@ -265,6 +271,15 @@
       <div class="banner__actions">
         <button id="update-later" type="button">あとで</button>
         <button id="update-button" type="button" class="primary">更新</button>
+      </div>
+    </div>
+
+    
+    <div id="cache-banner" class="banner" role="status" hidden>
+      <span><span id="cache-banner-text">音声データの取り込みが完了していません</span><small id="cache-banner-note"></small></span>
+      <div class="banner__actions">
+        <button id="cache-later" type="button">あとで</button>
+        <button id="cache-repair" type="button" class="primary">取り込み直す</button>
       </div>
     </div>
 

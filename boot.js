@@ -27,6 +27,12 @@
     return (APP_ID !== '' && name.indexOf(APP_ID + '-') === 0) || name.slice(-BASE.length) === BASE;
   }
 
+  // 修復の作法（自アプリの登録解除＋自アプリのキャッシュ削除＋再読み込み）は、
+  // アプリ側の src/cache-health.ts の repairCacheAndReload と同じにする
+  // （キャッシュ欠落の案内からの修復と、ここの起動失敗の復旧で同じ動き）。
+  // boot.js は通常のスクリプトで import できないため、作法をそろえて両方に
+  // 置く（isMyCache と src/cache-scope.ts の関係と同じ流儀。片方を変えたら、
+  // もう片方も必ず合わせること）
   function repair() {
     var jobs = [];
     if ('serviceWorker' in navigator) {
