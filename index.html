@@ -16,7 +16,7 @@
     <link rel="icon" type="image/png" href="icons/icon-192.png" />
     <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
     <title>灰の深淵 — 双葉 湊</title>
-    <script type="module" crossorigin src="./assets/index-BORRhsOS.js"></script>
+    <script type="module" crossorigin src="./assets/index-D9CskNSk.js"></script>
     <link rel="stylesheet" crossorigin href="./assets/index-kbH-_b36.css">
   <link rel="manifest" href="./manifest.webmanifest"></head>
   <body>
@@ -200,7 +200,8 @@
         
         <div id="dl-status-row" class="menu-foot" hidden>
           <p id="dl-status-line" class="menu-dl-status"></p>
-          <button id="dl-status-repair" type="button" class="menu-nav-row" hidden>📥 音声データを取り込み直す</button>
+          <button id="dl-status-fill" type="button" class="menu-nav-row" hidden>📥 足りない分をダウンロード</button>
+          <button id="dl-status-repair" type="button" class="menu-nav-row" hidden>最初から取り込み直す（全部消してやり直します）</button>
         </div>
 
         
@@ -276,10 +277,10 @@
 
     
     <div id="cache-banner" class="banner" role="status" hidden>
-      <span><span id="cache-banner-text">音声データの取り込みが完了していません</span><small id="cache-banner-note"></small></span>
-      <div class="banner__actions">
+      <span><span id="cache-banner-text">音声データが一部そろっていません</span><small id="cache-banner-note"></small></span>
+      <div id="cache-actions" class="banner__actions">
         <button id="cache-later" type="button">あとで</button>
-        <button id="cache-repair" type="button" class="primary">取り込み直す</button>
+        <button id="cache-repair" type="button" class="primary">足りない分をダウンロード</button>
       </div>
     </div>
 
