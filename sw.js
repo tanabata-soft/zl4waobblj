@@ -1,6 +1,7 @@
 // 旧 URL（このサイトの直下）で配信していた版の Service Worker を片づけるための
 // 自壊用スクリプト。旧 URL の端末はここを更新確認で取りに来るので、受け取ったら
-// 旧版のキャッシュと登録を消して、白紙の直下ページへ戻る。
+// 旧版のキャッシュと登録を消して、開いているページを読み込み直す（旧 URL なら白紙の
+// 直下ページになり、新 URL（/d/…）を旧 SW 越しに開いてしまった端末は新しい版が出る）。
 // 新しい配信場所のアドレスは書かない（秘密のパスを直下に出さないため）。
 // 消すのは、この直下の scope（self.registration.scope）が名前の末尾に付いた
 // キャッシュだけ。別の場所（/d/…）や同じサイトの他アプリのキャッシュは消さない。
@@ -18,9 +19,9 @@ self.addEventListener('activate', (event) => {
       await self.registration.unregister();
       for (const client of clients) {
         try {
-          void client.navigate(scope);
+          void client.navigate(client.url);
         } catch {
-          // 戻せなくても、次に開いたときは白紙になる
+          // 読み込み直せなくても、次に開いたときは旧版は残らない
         }
       }
     })(),
