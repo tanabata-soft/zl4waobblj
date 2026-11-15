@@ -16,8 +16,8 @@
     <link rel="icon" type="image/png" href="icons/icon-192.png" />
     <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
     <title>灰の深淵 — 双葉 湊</title>
-    <script type="module" crossorigin src="./assets/index-BUhXmRAU.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-C8VPBOho.css">
+    <script type="module" crossorigin src="./assets/index-Be0naJNv.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-CxdEXfR_.css">
   <link rel="manifest" href="./manifest.webmanifest"></head>
   <body>
     
@@ -177,7 +177,6 @@
             <div id="menuGroupMore">
               <label class="menu-row toggle-label" id="rowPageSound"><span>ページめくり音</span><input type="checkbox" id="pageSoundToggle" checked /></label>
               <label class="menu-row toggle-label" id="rowBg"><span>背景イメージ</span><input type="checkbox" id="bgToggle" checked /></label>
-              <label class="menu-row toggle-label" id="rowWake"><span>画面を暗くしない</span><input type="checkbox" id="wakeLockToggle" checked /></label>
               <label class="menu-row toggle-label" id="rowHl"><span>読んでいる文を強調</span><input type="checkbox" id="hlToggle" checked /></label>
               <label class="menu-row toggle-label" id="rowBgPlay"><span>画面を消しても再生</span><input type="checkbox" id="bgPlayToggle" checked /></label>
             </div>
@@ -262,12 +261,17 @@
           <li><span class="dl-guide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3.2" /><path d="M12 3.8v2.4M12 17.8v2.4M3.8 12h2.4M17.8 12h2.4M6.2 6.2l1.7 1.7M17.8 6.2l-1.7 1.7M6.2 17.8l1.7-1.7M17.8 17.8l-1.7-1.7" /></svg></span><span>右下：設定（朗読のオン・オフ）</span></li>
         </ul>
         
+        <div id="dlNoticeInstall" class="dl-notice-install" hidden>
+          <p class="dl-notice-body dl-notice-install-text">ホーム画面に追加すると、アプリとして開けます。ブラウザで読むだけなら、追加せずに、このまま下のボタンで取り込めます。iPhone では、ブラウザとアプリで保存場所が別なので、追加したアプリを開いたときに、もう一度ここで取り込みます。</p>
+        </div>
+        
         <div class="dl-notice-foot">
         <div id="dlNoticeProgress" class="dl-notice-progress" hidden>
           <div class="dl-progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-labelledby="dlNoticeProgressText"><span id="dlNoticeProgressBar"></span></div>
           <p id="dlNoticeProgressText" class="dl-progress-text" aria-live="polite"></p>
         </div>
         <div class="dl-notice-actions">
+          <button id="dl-notice-install-open" type="button" class="dl-install-open" hidden>📲 ホーム画面に追加</button>
           <button id="dlNoticeClose" type="button" class="primary">ダウンロードを始める</button>
         </div>
         </div>
@@ -279,8 +283,8 @@
 
     
     <div id="update-banner" class="banner" role="status" hidden>
-      <span>更新があります</span>
-      <div class="banner__actions">
+      <span id="update-banner-text">更新があります</span>
+      <div class="banner__actions" id="update-banner-actions">
         <button id="update-later" type="button">あとで</button>
         <button id="update-button" type="button" class="primary">更新</button>
       </div>
